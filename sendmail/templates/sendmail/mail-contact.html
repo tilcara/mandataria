@@ -1,0 +1,27 @@
+{% extends 'sendmail/base.html' %}
+
+{% block title %} Contacto {% endblock title %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.subject.name}}">{{form.subject.label}}</label>
+				{{form.subject}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.message.name}}">{{form.message.label}}</label>
+				{{form.message}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<button class="btn btn-primary" type="submit">Enviar mi consulta!</button>
+		</div>
+	</div>
+</form>
+{% endblock content %}

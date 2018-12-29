@@ -1,0 +1,13 @@
+{% extends 'sendmail/base.html' %}
+
+{% block title %} Mandataria {% endblock title %}
+
+{% block content %}
+	<main role="main" class="inner cover">
+	    <h1 class="cover-heading">Maria Victoria Santillan</h1>
+	    <p class="lead">Bienvenido {{ user.username }}, enviame tu consulta y en breve respondere!</p>
+	    <p class="lead">
+	      <a href="{% url 'sendmail:contact' %}" class="btn btn-lg btn-secondary">Enviar consulta</a>
+	    </p>
+	  </main>
+{% endblock content %}
