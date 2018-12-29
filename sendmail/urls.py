@@ -7,4 +7,5 @@ app_name = 'sendmail'
 urlpatterns = [
     path('', home, name = 'home'),
     path('contact/', login_required(MailContact.as_view()), name = 'contact'),
-]
+    path('services/', services, name = 'services')
+]				

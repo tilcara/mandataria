@@ -25,7 +25,13 @@ def home(request):
         except:
             request.user.email = ""
             request.user.save()
+    setattr(request, 'view', 'sendmail.views.home')        
     return render(request, 'sendmail/home.html')
+
+@login_required
+def services(request):
+	setattr(request, 'view', 'sendmail.views.services')
+	return render(request, 'sendmail/services.html')
 
 
 class MailContact(CreateView):

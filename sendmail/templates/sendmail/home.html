@@ -4,10 +4,11 @@
 
 {% block content %}
 	<main role="main" class="inner cover">
-	    <h1 class="cover-heading">Maria Victoria Santillan</h1>
-	    <p class="lead">Bienvenido {{ user.username }}, enviame tu consulta y en breve respondere!</p>
+	    <h1 class="cover-heading">Santillán Maria Victoria</h1>
+	    <h6>MAT. NACIONAL: M201827336844733DN</h6>
+	    <p class="lead">Bienvenido {{ user.username }}, enviame tu consulta y en breve responderé!</p>
 	    <p class="lead">
 	      <a href="{% url 'sendmail:contact' %}" class="btn btn-lg btn-secondary">Enviar consulta</a>
 	    </p>
-	  </main>
+	</main>
 {% endblock content %}
