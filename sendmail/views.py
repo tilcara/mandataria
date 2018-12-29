@@ -4,8 +4,11 @@ from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+
 from .forms import MailForm
 from .models import Mail
+
 import requests
 import json
 
@@ -25,7 +28,7 @@ def home(request):
         except:
             request.user.email = ""
             request.user.save()
-    setattr(request, 'view', 'sendmail.views.home')        
+    setattr(request, 'view', 'sendmail.views.home')
     return render(request, 'sendmail/home.html')
 
 @login_required
@@ -51,7 +54,7 @@ class MailContact(CreateView):
 			email = mail.user.email
 			subject = form.cleaned_data['subject']
 			message = form.cleaned_data['message'] + '\n' +' de: '+ email_from +' '+ email
-			recipient_list = ['zorrodefuego333@gmail.com']
+			recipient_list = [settings.EMAIL_HOST_USER]
 			send_mail(subject, message, email_from, recipient_list)
 			return HttpResponseRedirect(self.get_success_url())
 
