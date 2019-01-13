@@ -47,6 +47,13 @@
           <h3 class="masthead-brand">Mandataria Registral de Automotores y Créditos Prendarios</h3>
         </div>
       </header>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{message.tags}}">
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
 
       {% block content %}
       {% endblock content %}

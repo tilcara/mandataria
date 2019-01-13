@@ -1,12 +1,22 @@
 {% extends 'sendmail/base.html' %}
-{% load staticfiles %}
+
 {% block content %}
-  	
-     
-          <p>
-            <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary my-2">Logueate con Facebook!</a>
-         
-          </p>
+  		
+ 			    
+<p>
+    <a href="#" class="btn btn-success my-2">Logueate</a>
+</p>
+<br>
+<p>No tenés cuenta?</p>
+<br>
+<p>
+    <a href="{% url 'sendmail:signup' %}" class="btn btn-danger my-2">Registrate</a>
+</p>
+<br>
+<p>O...</p>
+<p>
+	<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary my-2">Logueate con Facebook!</a>
+</p>    
     
      
 

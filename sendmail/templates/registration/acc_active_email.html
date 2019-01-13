@@ -1,0 +1,5 @@
+{% autoescape off %}
+Hola {{ user.username }},
+por favor clickea en el link de abajo para confirmar tu registro! Gracias :),
+http://{{ domain }}{% url 'sendmail:activate' uidb64=uid token=token %}
+{% endautoescape %}
