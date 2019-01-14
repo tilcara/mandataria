@@ -1,22 +1,29 @@
 {% extends 'sendmail/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   		
- 			    
-<p>
-    <a href="#" class="btn btn-success my-2">Logueate</a>
-</p>
-<br>
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
 <p>No tenés cuenta?</p>
-<br>
+
 <p>
-    <a href="{% url 'sendmail:signup' %}" class="btn btn-danger my-2">Registrate</a>
+    
+   	<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary my-2">Logueate con Facebook!</a>
+   		o
+   	<a href="{% url 'sendmail:signup' %}" class="btn btn-danger my-2">Registrate</a>
 </p>
-<br>
-<p>O...</p>
-<p>
-	<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary my-2">Logueate con Facebook!</a>
-</p>    
+   
     
      
 
